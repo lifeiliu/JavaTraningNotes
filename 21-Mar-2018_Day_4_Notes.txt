@@ -1,0 +1,208 @@
+Day-4:
+========
+1) IO Package
+		-Serialization
+		-De-Serialization
+		-Best Way of Doing Singleton Class
+		
+2) String and StringBuffer -API
+
+3) Example Programs
+
+Serialization :
+==============
+>> The process of saving the state of an object permanently in 
+	the secondary memory,is said to be serialization.
+	
+De-Serialization:
+=================
+>> The process of reading the object from secondary memory 
+	to primary memory is said to be De-Serialization.
+	
+What are all the Different Ways To Create On Object?
+
+	1) new keyword
+		ClassName objectName=new ClassName();
+		
+	2) cloning 
+	
+	3) De-Serialization
+	
+	4) Class.forName("fullyQualifiedName").newInstance();
+	
+	5) Factory Method
+		Calendar.getInstance();
+		Thread.currentThread();
+		etc..
+		
+ ***
+  How to Serialize Singleton Objects?
+ ***
+ 
+ Stream:
+ ======
+	Stream is nothing but a flow of data between source and destination.
+	
+	Source : Keyboard, File etc..
+	Destination: File, Console etc..
+	
+Input Stream 			===> reading Operations
+Output Stream 			===> write Operations
+
+
+Byte Oriented Streams		===>		1 Byte At A time
+	
+	InputStream
+	OutputStream
+		ends With
+
+Charchter Oriented Streams 	===> 		2 Bytes At A Time
+
+	Reader
+	Writer
+		ends With
+		
+Note:
+		FileNotFoundException
+		IOException
+					etc..
+					Checked Exceptions
+					
+>> If it is come under a checked exception then compiler force you to handle
+	the exception.
+
+JDK 1.7:
+=========
+1) Try With Resources
+
+2) Single Catch Clause With Multiple Exceptions
+
+3) Closeable Interace's
+
+4) Strings in Switch Case
+
+5) JDBC 4.1 API Introduced
+
+etc..
+
+JDK 1.6:
+JDBC 4.0 API Introduced
+========================
+String And StringBuffers:
+=========================
+
+1) java.lang.String
+
+2) java.lang.StringBuffer
+
+3) java.lang.StringBuilder
+
+4) java.util.StringTokenizer
+
+etc..
+
+>> String is final Class
+
+>> String objects Immutable
+
+>> exact charcters Memory
+
+	String ob1=new String("Srinivas");
+
+
+>> StringBuffer Objects Are mutable 
+
+>> 16 Additional Charachers Memory
+	sb.capacity();
+	
+>> StringBuffer Methods Are ThredSafe
+	
+>> StringBuilder exactly similar to StringBuffer, difference
+		StringBuilder is not threadsafe.
+>> JDK 1.5 Version, StringBuilder Is Introduced.
+
+			A		B
+			||		||
+			||		||
+			||5 	||2
+			T1		T2
+	12		
+			Synchronzied[
+ C=====> T3	 				[   ]Printer
+			]
+
+>> Around 15 Constructors In String Class			
+>> String Objects Creation
+
+	One is By Using new Operator
+	
+	String s=new String("Java");
+	
+	Literal Approach
+	
+	String s1="Java";
+	
+>> StringConstant Pool
+
+
+	String s=new String("Java");
+	String s1=new String("Java");
+	
+	String ss="Java";
+	
+	String ss1="Java";
+	
+	String ss2="java";
+	
+	Heap Memory
+					StringConstantPool
+					
+		s 				[Java]	ss,ss1
+	
+		s1				 [java] ss2
+	
+		ss
+	
+		ss1
+	
+		ss2	
+***	
+ >> intern () Method Will do?
+*** 
+
+Example:
+========
+ Input	: "EARTH"
+ Output	: "EARTH||HTRAE"
+ 
+	public static String mirrorImage(final String input){
+	
+	
+		return null;
+	}
+	
+
+ Input : {"A23@3QW","23QW34A2","3ASD4","#sd45sdf","ASDS@#2"};	
+ Output: 40
+ 
+	public static int getAllDigitsSum(final String input[]){
+	
+		return 0;
+	}	
+				java.lang.*;
+				final
+					hashCode()
+					equals()
+					toString()
+					compareTo()
+					
+	byte		Byte
+	short		Short
+	int			Integer
+	long		Long
+	float		Float
+	double		Double
+	char		Character
+	boolean		Boolean
+
+	

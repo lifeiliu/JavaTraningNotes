@@ -1,0 +1,220 @@
+======
+Day-2:
+======
+Topic-1:
+
+>> static VS instance variables
+>> static VS instance methods
+>> static VS instance blocks
+
+Topic-2:
+>> Inheritace
+>> super
+		@Variable Level
+		@Method Level
+		@Constructor Level
+>> final
+		@Variable Level
+		@Method Level
+		@Class Level
+		
+>> Singleton Desing Pattren
+	etc..
+	
+static VS instance variables:
+=============================
+class Demo{
+				int a;
+				static int b;
+				void init(int a){
+					this.a=a;
+				}
+				void display(){
+					Syso(a);
+				}
+}
+public class MainClass{
+		public static void main(String args[]){
+			Demo.b=2000;
+			Demo demo=new Demo(); // Object Creation 
+			demo.a=201;
+			Demo demo1=new Demo(); // Object Creation 
+			demo1.init(Demo.b);
+		}
+}
+
+JVM Internal Memory:
+====================
+							[2000]b
+	[ [201]a
+		 [  ]display, init
+	
+		]reference@1
+		 demo
+	
+	[ [2000]a
+		 [  ]display, init
+	
+		]reference@2
+		 demo1
+	
+>> For each and every object creation 
+		- will get a seperate memory for the instance variables
+		
+	For Entire Class 
+		- Will have only one memory for static variables
+		
+>> We can access the instance variables 
+		- With the syntax  objectName.instanceVariableName;
+		
+   We can access the static variables
+		- With the syntax ClassName.staticVariableName;
+		
+>> instance variables 
+		- were object level dependency's and in-dependent from class
+		
+   static variables
+		- were class level dependency's and in-dependent from object
+		
+>> With Instance Variable Data Sharing is not possible
+	
+   With Static Variable Data Sharing is possible.
+   
+>> static variables placed with a static keyword.
+
+Log 4J:
+=======
+ Log 4J is  an open source frame work
+	- Used to recording the activities of your application
+		for doing de-bugging and testing when required.
+
+>> In this scenario we are making ready this log4j functionality
+			before actual application getting started.
+	
+****	
+Tell Me Few Examples For Singleton Classes?
+****	
+	>> Logger Class In Log4J Frame Work
+	>> Runtime Class
+	>> TaskManager In Windows Operating System
+	
+In Spring Frame Work 
+	- Default Bean Scope is Singleton
+Inheritance:
+===========	
+	>> Code Re-Usability
+What are all the different Code Re-Usability Techniques?
+
+	Types Of Relations In Java:
+										OOAD
+		>> IS A Relationship		>> Generalization ===> Inheritance
+		
+		>> HAS A Relationship		>> Aggregation
+		
+		>> USES A Relationship		>> Association
+
+	>> Hence Will Get Faster Devlopement
+	
+Types Of Inheritance's:
+
+	1) Single Inheritance
+	
+	2) Multi Level Inheritance
+	
+	3) Multiple Inheritance		- With The Concept of Classes Multiple Inheritance Not Supported
+								  With The Concept of Interfaces Multiple Inheritance Possible
+	
+	4) Hierarchal Inheritance
+	
+	5) Hybrid Inheritance
+	
+Base Class - Super Class :
+=========================
+		The Class which is giving properties and methods to be reused
+		
+Derived Class - Child Class:
+============================
+		The Class Which is Re Using The Properties And Methods
+		
+Note:
+=====
+	>> As per inheritance 
+	
+		- it is suggistable to create an object for Bottom Most Derived Class.
+		- Even though we are creating an object for bottom most derived class	
+			first memory will be allocated for base class properties and base class methods
+			later memory will be reserved for derived class properties and methods.
+		- Application Control Always Lies In Derived Class Only.
+		
+	>> By Using Sub Class Reference 
+			We Can Access Base Class Properties And Base Class Methods
+			As Well As Sub Class Properties And Sub Class Methods.
+			Vice Versa Relation Not Possible.
+
+	>> keyword - extends
+	
+	>> super - 	@Variable Level
+				@Method Level
+				@Constructor Level
+				
+	>> final - 	@Variable Level
+				@Method Level
+				@Class Level
+				
+ Examples For final Classes:
+			String
+			StringBuffer
+			StringBuilder
+			Math
+			All the Wrapper Classes
+			System
+				etc...
+Method Over riding:
+====================
+1) The Method Name Is Same and Signature Also Same in Both Base Class
+	As Well As Derived Class , but we may have Definition different
+	
+	Employee (Base Class)
+			==> PEmployee	===> Salary Caliculation	==> Per Anum Basis
+			==> CEmployee	===> Salary Caliculation	==> Per Day Basis
+
+						Employee (Base Class)
+							||
+							||
+					===================
+					||				||
+				 PEmployee			CEmployee
+
+
+>> // super at Constructor Level
+	When we are we are using super at constructor level call, this will be the 
+	first executable Statement other wise will compile time error.
+
+>> Method Local Variable 
+		- Declaration Cum Initialization With In A Single Statement.
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

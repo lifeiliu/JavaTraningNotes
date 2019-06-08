@@ -1,0 +1,379 @@
+Day-1:
+=======
+
+1) Core Java
+
+2) JDBC, Servlets And JSP's
+
+3) Struts 2.X, Spring, Hibernate
+
+4) XML, Web Services
+
+JDK 1.9 -Beta Version
+
+1) JDK 1.8 - Version
+
+2) Eclipse Oxygen Version - For J2EE Devlopers
+
+3) For Data Base:
+		Oracle 
+		MY SQL 
+
+4) Tomcat 8.0 Server - Web Server
+
+Note:
+====
+ 1) Operating Systems
+		64 bit, 32 Bits
+		
+Object Oriented Principles:
+===========================
+1) Class
+
+2) Object
+
+3) Data Abstraction
+
+4) Data Encapsulation
+
+5) Inheritance
+
+6) Polymorphisam
+
+7) Dynamic Binding
+
+8) Message Passing	
+
+
+>> Data Security
+
+>> Code Reusability	
+
+>> The Way of coding is very easy and understandable, 
+	We can easily corelate to real world scenarios.
+		
+C Lang:
+========
+#include<stdio.h>
+#include<conio.h>
+void main(){
+
+	int a,b,c;
+	float avg;
+	int sum;
+	
+	printf("Enter Values");
+	scanf("%d",&a);
+	scanf("%d",&b);
+	scanf("%d",&c);
+	sum=a+b+c;
+	avg=(sum)/3;
+	printf("Sum Is:%d",sum);
+	printf("Avg Is:%f",avg);
+	getch();
+}	
+Output:
+=======
+a=20;
+b=10;
+c=30;
+Sum Is :  60
+Avg Is :  20.0	
+
+20.0@#-$
+ Some times there may be a chance of getting
+garbage values.
+
+#include<stdio.h>
+#include<conio.h>
+void main(){
+
+	int a=0,b=0,c=0;
+	float avg=0.0;
+	int sum=0;
+	
+	printf("Enter Values");
+	scanf("%d",&a);
+	scanf("%d",&b);
+	scanf("%d",&c);
+	sum=a+b+c;
+	avg=(sum)/3;
+	printf("Sum Is:%d",sum);
+	printf("Avg Is:%f",avg);
+	getch();
+}	
+Output:
+=======
+a=20;
+b=10;
+c=30;
+Sum Is :  60
+Avg Is :  20.0	
+Note:
+=====
+			In Java There is no concept of garbage values,
+instead this un-intialized variables will be filled with default values.
+					Default Value
+					=============
+	1) byte				0
+	
+	2) short			0
+	
+	3) int				0
+	
+	4) long				0
+	
+	5) float			0.0
+	
+	6) double			0.0
+	
+	7) char				
+	
+	8) boolean			false
+	
+	   String			null
+	   
+	   Object			null
+	   
+Function Syntax- C:
+===================
+
+		returnType	<<functionName>>(List of arguments if any?){
+		
+				// Local Variables Declaration
+				
+				// Business Logic
+				
+				return withAnExpression/Value;
+		}
+
+Method Syntax- Java:
+====================
+
+[access Modifiers/few Keywords] returnType	<<methodName>>(List of arguments if any?){
+		
+				// Local Variables Declaration
+				
+				// Business Logic
+				
+				return withAnExpression/Value;
+		}
+		
+1) public
+2) private
+3) protected
+4) default
+
+
+Class:
+======
+1) Class is nothing but a user defined data type.
+
+2) Class is a blue print, 
+	by using that we can pack data members
+	and member methods together into a single unit.
+
+3) Class Definition is Existed Only One time.
+
+4) Class is a just a template which doesn't have any physical
+	memory.
+	
+Object:
+=======
+1) Object is nothing but an instance of a class.
+		What do you mean by an instance?
+		
+		>> Instance is nothing but allocating sufficient amount of 
+memory for the data members and member methods
+which are all defined inside of a class template at runtime.
+
+	ClassName objectName=new ClassName();
+
+	new: Dynamic Memory Allocation Operator.
+	
+2) Value form of a class
+
+3) Class variable is nothing but an object
+
+4) Object is a Real World Entity
+
+5) Grouped Entity
+
+6) Blue Print of a Class
+
+7) Physical Form of a Class
+	etc..
+	
+State Of An Object:
+===================
+	The data which is stored in the object memory location 
+at the current point of time is said to be state of an object.
+
+>> Object will contain state and behaviour.
+
+	
+****
+Note:
+======
+What are all the different ways to Create An Object?
+
+	1) By Using new Operator
+	
+	2) By Using clone Method
+	
+	3) By Using De-Serialization
+	
+	4) By Using Class.forName("fullyQulifiedName Of A Class").newInstance();
+	
+	5) By Using A Factory Methods
+		etc..
+
+SDLC:
+=====
+	1) Requirement Analysis and Gathering
+	
+	2) Design
+			==> UI Design
+			==> Server Side Code
+					PSeudo Code			
+			==> Data Base Design
+	
+	3) Code
+	
+	4) Testing
+	
+	5) Integration
+		etc..
+
+Employee Management Systems
+	
+ Nouns 			- Classes
+				  Employee
+				  Department
+				  Address
+				  ProjectDetails
+ 
+ 
+ Adjectives		- Data Members Of A Class
+ 
+ 
+ Verbs			- Member Methods
+
+==================
+Method OverLoading:
+==================
+Method name is same, but it is diffentiated by 
+
+>> Diffentiated By Type Of Arguments
+	OR
+>> Diffentiated By Number Of Arguments
+	OR
+>> Diffentiated By Order Of Arguments
+
+=============
+Constructors:
+=============
+1) Constructor Name And Class Name Is Same
+
+2) Constructor Does Not Return Any Value
+
+3) Constructor Is Used To Initialize The Object Properties
+	at the time of creation of an object.
+
+4) We no need to call the constructor and it will be called by the JVM.
+
+5) Constructor is a Special Method
+	for doing the initialization of object Properties.
+
+	>> No Parameterized Constructor
+
+	>> Parameterized Constructor
+
+	>> Object Parameterized Constructor
+		( Copy Constructor)
+		
+6) If you are not writing any user defined constructor,
+	system will have its own public zero argument constructor.
+
+Note:
+======
+
+What is Constructor?
+
+	ClassName objectName=new ClassName();
+
+new -- Dynamic Memory Allocation Operator
+
+>> Constructor is used to initialize the object properties with your
+	own values instead of default values.
+
+===================
+State Of An Object:
+===================
+	The data which is stored in the object memory location at the 
+current point of time is said to be state of an object.
+
+==============
+this keyword:
+==============
+
+1) @variable level
+
+2) @Constrctor Level
+
+3) @Method Level
+
+4) This is A Method Argument
+
+5) This is as a Method Return Type
+
+6) This represents current instance.
+
+===================
+Method Overloading:
+===================
+
+1) Method Name is same, and return type also same
+	>> Number of Arguments
+	>> The Type of Arguments
+	>> The Order Arguments
+
+
+Q: Is is possible to have a private Constructor?
+
+		Yes,
+		
+Q: In What scenario's we are using private constructors in real time applications?
+
+
+static and instance
+inheritance
+polymorphisam
+JVM internal architecture
+etc..
+
+Eclpise - J2EE 
+JDK 1.8 Atleast
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+

@@ -1,0 +1,116 @@
+======
+Day-7:
+======
+Different Ways To Fetch The Data From Collections?
+
+1) Iterator Interface
+
+2) ListIterator Interface
+
+3) For Each Loop
+
+4) Enumeration 
+
+
+In All the Wrapper Classes,
+String, StringBuffer, Date Class etc..
+
+toString();
+hashCode();
+equals();
+
+compareTo(); ==> From Comparable Interface
+
+These Methods Are Already Overridden
+
+java.util.*;
+
+	Map Interface
+	||
+	||
+	SortedMap Interface
+	
+1) Hashtable	 		==> ThreadSafe	
+
+2) HashMap				==> Single Null Key
+
+3) TreeMap				==> SortedMap Interface
+
+4) LinkedHashMap	
+
+5) ConcurrentHashMap	===> ThreadSafe
+							 Does Not Allow Null Key
+
+6) WeakHashMap
+
+7) IdentityHashMap
+
+
+Map<Integer,String> inputMap=new HashMap<Integer,String>();
+					inputMap.put(101,"AAA");	==> Key And Value Pair ==> Entry
+					inputMap.put(102,"CCC");
+					inputMap.put(103,"BBB");
+					inputMap.put(104,"AAA");
+								
+
+map[	101		AAA			==> Key And Value Pair ==> Entry
+		102		CCC
+		103		BBB
+		104		AAA			==> Value Also An Object
+
+	]	Key 	-Object
+	
+>> Keys Must Be Unique, Value may be duplicated
+
+>> HashMap Allows one Null Key Entry	
+
+>> ConcurrentHashMap Does Not Allow Null Key Entry
+
+>> TreeMap Stores the elements in Sorting Order Based on its key.
+
+>> LinkedHashMap Preserves the insertion order.
+
+>> Hashtable and ConcurrentHashMap both were threadsafe.
+			
+>> ConcurrentHashMap Methods performance is good compare to Hashtable.
+
+Interview 	
+*****
+>> Internal Implementation of HashMap, ConcurrentHashMap etc?	
+*****	
+	
+	map[	101		AAA			==> Key And Value Pair ==> Entry
+			102		CCC
+			103		BBB
+			104		AAA			==> Value Also An Object
+
+		]	Key -Object
+		
+		
+	String object=map.get(103);
+	Syso(object); // BBB
+		
+		Set<Integer> keys				=map.keySet();
+		Collection<String> values		=map.values();
+		Set<Entry<Integer,String>> entrys=map.entrySet();
+				 
+Continuation:
+=============
+How to deal with userdefined objects as keys, in Map
+
+
+What is WeakHashMap	VS HashMap	?
+What is IdentityHashMap VS HashMap	?
+
+****
+What is Fail Safe And Fail Fast?
+****
+
+Multi- Threading
+JDK 1.8 Intro
+Case Study -4 Collections - JUINT 4.0
+
+>> SQL Intro
+>> JDBC 
+>> Servlets Intro, JSP and JSTL
+>> Spring , Hibernate, RestFull Web Services
