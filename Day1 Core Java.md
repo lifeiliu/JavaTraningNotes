@@ -152,7 +152,10 @@ Software Development Process
      - can you start research on this, we will take it up by 2 months
 3. Testing tpyes;
     - Unit Testing   -DEV
-    - Smoke / ADHoc testing
+    - Smoke / ADHoc testing 
+        randomly doing something on url, just do the clicks. if any page has exceptions, then the system fails. at the very high level, doesn't know anything with the system
+        this is smoke testing.
+
     - SIT -QA/BA
     - Regression Testing
     - UAT
@@ -171,6 +174,14 @@ Software Development Process
     BA
     DBA
     UX
+5. Review meeting
+    - senior developer meet every week? risk evaluate? release date? track all activities with PM softwares. 
+  introspection 
+    - bug report, all people meet, 
+
+6. code quality test 
+    - your code should pass 95% test. 
+
 how the industry agrees from all SDLC model to Agile?
 - need of customer and tech evention
 - what is water fall like?   interaction with customer once few month.  <2000
@@ -192,3 +203,8 @@ how the industry agrees from all SDLC model to Agile?
   on Monday, tells need help, happy manager!
 
   QA knows the whole system, if don't understand business domain , ASK BA then QA
+
+  Question: 
+  As a developer, you r handed a task and YOU know it is completely new for you. how to handle this situation?
+    - research first, collect all information. what is you known and don't know. talk with people, need help, and am i in the right direction, REMEBER TO SEND THANK YOU IN PERSON AND IN EMAIL.
+      ATTITUTE MATERS A LOT!

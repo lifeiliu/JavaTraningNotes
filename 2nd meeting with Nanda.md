@@ -1,0 +1,22 @@
+# AWS SERVICE NEED TO KNOW AS JAVA DEVELOPER
+------------------------------
+- IAM
+- VPC
+- EC2
+- S3
+- RDS
+- DynamoDB
+- ELB
+- - Lambda
+- API gateway
+- CloudWatch
+- Route53
+- CloudFront
+- OpsWorks
+- CodeCOmmit
+- CodeDeploy
+- Code Pipeline
+- ElastiCache
+- ECS
+- SNS
+- SQS
