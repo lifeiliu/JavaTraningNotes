@@ -13,7 +13,8 @@
         - easily book mark your search result
         - can refresh the page, won't change 
         - could pre- save some result in a link 
-          e.g. in the main page save a "see our all chicken dishes" with a` "<a href='searchResults.html?searchTerm=chicken' >View all of our chicken dishes</a>"`
+          e.g. in the main page save a "see our all chicken dishes" with a
+          ` "<a href='searchResults.html?searchTerm=chicken' >View all of our chicken dishes</a>"`
 
 
     2.3 why use post？
@@ -27,52 +28,63 @@
         Using Post-Redirect-Get design pattern!
        - why to use redirect? when we use post, we are sending server infos. after submit the form, we don't want sevlet excute anymore. however, if we are staying in the same html and when we refresh, it will excute.
        so we do `response.redirect("somepage.html?parameter=?"+paravelue)`
+
        - this is a 302 redirect. 
        - difference in 302 and 303?  
 
 3. sessions and cookies
+
     3.1 what is sessions and why to use?
         - Http is a stateless protocal, Each time user requests to the server, server treats the request as a new request. So we need to maintain the state of an user to recognize to particular user.
         - SSH is long term lasting connection. but costly. 
+    
     3.2 how to let the server recognize a user? e.g. amazon remebers userId and keeps cart every time you visit their web.
         - use cookie! server send little files to client and saved in client's computer.next time server communicate with the client, it will check if the client has the cookie it saved before. if yes, it will read and recognize the client. 
         - cookie's limitation. cookie only text, hard to convert to objects. and small. <4k
         - server session!
         server generate UID, cookie store UID, server store key-value pair. e.g. client's shopping cart info. 
-    3.3 code example of using Sessions
-    ```java
-        public void service(...){
-            PrintWriter out = request.getPrint();
-            response.setContentType("text/html");
 
-            HttpSession session = request.getSession();
-            session.setAttribute("key",yourValueCanBeAnyType);
-            syso(".....");
-        }
-    ```
+    3.3 code example of using Sessions
+
+        ```java
+            public void service(...){
+                PrintWriter out = request.getPrint();
+                response.setContentType("text/html");
+
+                HttpSession session = request.getSession();
+                session.setAttribute("key",yourValueCanBeAnyType);
+                syso(".....");
+            }
+        ```
         when getting the session stored value back
-    ``` java
-        public void service(...){
-            HttpSession session = request.getSession();
-            Object value = session.getAtrribute("key")
-        }
-    ```
+
+
+        ``` java
+            public void service(...){
+                HttpSession session = request.getSession();
+                Object value = session.getAtrribute("key")
+            }
+        ```
+
     3.4  when we using cookie, remeber to set a time out period.
         server is not going to store the cookie forever. 
         In web.xml
-        ```xml
-                <session-config>
-                    <session-timeout>120</session-timeout>
-                </session-config>
-        ```
+
+            ```xml
+                    <session-config>
+                        <session-timeout>120</session-timeout>
+                    </session-config>
+            ```
+
     3.5 What if the user disabled cookie in the web-browser?
         use jsession
-        '''java
-            HttpSession session = request.getSession();
-            session.setAttribute("key",yourValueCanBeAnyType);
-            String redirectUrl = "yourRedirectUrl.html" 
-            response.encodeURL(redirectUrl);  // here notice to use encodeURL not encodeUrl  
-            response.sendRedirect(redirectUrl);
-        ```
+
+            ```java
+                HttpSession session = request.getSession();
+                session.setAttribute("key",yourValueCanBeAnyType);
+                String redirectUrl = "yourRedirectUrl.html" 
+                response.encodeURL(redirectUrl);  // here notice to use encodeURL not encodeUrl  
+                response.sendRedirect(redirectUrl);
+            ```
 
 
