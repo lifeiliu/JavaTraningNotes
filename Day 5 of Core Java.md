@@ -128,3 +128,182 @@ class Main
     7. has implemented class(PriorityQueue, BlockingQueue->(Linked Blocking Queue and PriorityBlockingQueue))
     *All these above interfaces (Collection,List,Set,SortedSet, NavigableSet and Queue) are for individual objects, IF we want key-value pairs, should go for Map*
     
+  Map (not clild interface of collection, group of individual key value paris, key no dupulicate, values could. implemented class: HashMap->LinkedHashMap, )
+    8. SortedMap: clild of Map. group of key-value pairs according to some order
+    9. NavigableMap: child of sortedMap. implemented class TreeMap
+
+### Collection Interface:
+        - represent a group of individual objects as a single entity
+        - Collection can be considered as root interface of Collection framework
+        - to hold and transfer Objects, all Collection implements Serializable and Cloneable interface
+        - Defines most common methods that are applicable for any collection object
+        - add(Object o)/ addAll(Collection c)
+        - remove(Object)/ removeAll(Collection c)
+        - clear()
+        - retainAll(Collection c)
+        - isEmpty()
+        - size()
+        - contains()/ containsAll()
+        - Object[] toArray()
+        - Iterator iterator()
+### List(I)
+    index plays an important role in List: check dupulicate and preserve insertion order.
+    - add(int index, Object o) /addAll(int index, Collection c) define the position to add
+    - remove(int index)/ get(int index)/ Set(int index, Object o)
+    - Object indexOf(A) / lastIndexOf(A)
+    - listInterator()
+### ArrayList(Class)
+    - Resizable array
+    - Duplicate allowed
+    - Insertion Order
+    - Heterogeneous     Object 
+        but TreeSet, TreeMap have to be homogeneous, because they have to compare one to others in order to keep a proper order
+     - null insertion is possible
+     - constuctions
+        1. ArrayList l = new ArrayList();
+            new Capacity = (current capaciyu * 1.5)+1  default 10
+        2. ArrayList l = new ArrayList(int initialCapacity)
+        3. ArrayList l = new ArrayList(Collection c)
+     - ArrayList and Vector implements RandomAccess interface, so we can accessrandom element with same speed
+     - ArrayList is best choice if frequent operation is retrival operation
+        IS worst choice if frequent operation is insertion or deletion in the middle(bec several shift are required)
+### LinkedList(Class)
+    - double link list
+    - insertion order easy
+    - duplicate allowed
+    - heterogeneous allowed
+    - null allowed
+    - implemented serializable and clonable, but no RandomAccess
+    - best -> frequent operation is insertion/ deletion
+    - worst -> frequent is retrieval
+    - methods
+        addFirsst() / addLast()
+        getFirst() / getLast()
+        removeFirst() / removeLast()
+    - Constructors
+        LinkedList l = new LinkedList()
+        LinkedList l = new LinkedList(Collection c)
+### Vector(C)
+    - Resizable array
+    - Duplicate allow
+    - Insertion order perserved 
+    - null allowed
+    - Heterogeneous
+    - Serilizable and cloneable
+    - RandomAccess
+    - Synchronized Thread Safe 
+    - best for data retrieval
+    - Constructors:
+        Vector v = new Vector()  10 default capacity new cpacity = 2*cc
+        Vector v = new Vector(int initCapacity)
+        Vector v = new Vector(int initCapacity, int incrementalCapacity)
+        Vector v = new Vector(Collection c)
+### Set (I)
+    - Child of Collection
+    - duplicates not allowed and insertion order not preserved
+    - doesn't contain new methods. all from collection interface
+
+### HashSet(C)
+    - Hashtable
+    - Duplicate not allow,if add duplicate, add() method return false
+    - insertion order not perserved
+    - Heterogeneous allow
+    - null insertion allowed
+    - serializable and cloneable not randomAccess
+    - best choice for search operation
+    - Constructors (HashSet, LinkedHashSet, HashMap, LinkedHashMap,WeakHashMap,Hashtable  all Hash Based have same constructors)
+        HashSet hs = new HashSet(); 16 init size, FillRatio:0.75
+        HashSet hs = new HashSet(int initCapa); load factor: 0.75
+        HashSet hs = new HashSet(int initCapa, float loadFactor)
+        HashSet hs = new HashSet(Collection c)
+        load Factor/Fill Ratio: after reach this ratio, new Hash set will created
+
+### LinkedHashSet(C)
+    - Dupilate not allowed but insertion order perserved
+    - hashtable + linked list
+    - introduced in 1.4
+    - best choice for developing cache based applications, where duplicate not allowed but insertion order must be perserved
+
+### SortedSet(I)
+    - Child of Set
+    - having some sorting order
+    - specific methods:
+        + first()
+        + last()
+        + headSet(object o) o not included in 
+        + tailSet(Object o) o is included
+        + subset(Object o1, Object o2) contains o1, not containing o2
+        + comparator()
+            returns Comparator object that describes underlying sorting technique.  
+    - default natural sorting order. comparator() returns null in this case
+        numbers： anceding
+        Strings: alphabetacl
+### TreeSet(C)
+    1. balanced tree -- underlying data structure
+    2. duplicate not allowed
+    3. Insertion order not
+    4. Sorting order having
+    5. Heterogeneous not support throw ClassCastException
+    6. null allowed but only once
+    7. constructors
+        TreeSet ts = new TreeSet()
+            default natural sorting
+        TreeSet ts = new TreeSet(Comparator c) 
+            customized sorting order
+        TreeSet ts = new TreeSet(Collection c)
+        TreeSet ts = new TreeSet(SortedSet s)
+    8. null insertion
+        for empty TreeSet as the first element null insertion is possible. but after inserting that null, any insertion will cause NullPointerException.
+        for any non empty treeSet, null can not insert, will have NullPointerException
+    9.  ClassCastException (CCE for short)
+        + if we are depanding on default natural sorting order then objects should be homeogeneous and camparable. otherwise will get CCE 
+        + an object is comparable iff the corresponding class implements java.long.comparable interface
+        + String and all wrapper class already implements comparable interface. but StringBuffer does not.
+### Comparable(I)
+    1. java.lang
+    2. public int compareTo(Object obj)
+        obj1.compareTo(obj 2){
+            return negetive iff obj1 come before obj2
+            return postive iff obj1 come after obj2
+            return 0 iff obj1 == obj2
+    3. example:
+        TreeSet t = new TreeSet()
+        t.add("b");     
+        T.add("z");         // z.compareTo("b") ==> + value
+        t.add("a");         // a.compareTo('b') ==> - value
+        syso(t)             // [a,b,z]
+    4. having customized sorting order by using Comparator
+    5. Comparable used for default Natural Sorting order whereas Comparator used for customerized Sorting order.
+### Comparator(I)
+    1. custormized sorting order
+    2. java.util
+    3. defines two methods: compare() and equal()
+        public int compare(objet obj1, Object obj2){
+            return -ve iff obj1 before obj2
+            return +ve iff obj1 after obj2
+            return 0 iff equal
+        }
+        public boolean equal()
+        however, when we implement Comparator interface, only compare() method is mandatory to override. equal is optional
+        e.g.
+        `class MyComparator implements Comparator{
+                compare(){}
+            } `
+### integer object into treeSet in descending order
+`   
+    Class myComparator implements Comparator{
+        public int compare(Object obj1, Object obj2){
+            Integer i1 = (Integer) obj1;
+            Integer i2 = (Integer) obj2;
+            return i2 - i1;
+            // return +1; always insert after, keep insertion order
+            // return -1; revse insert order
+            //return 0 ; only keep first one
+            // return i1.compareTo(i2) increasing order
+            //return -i1compareTo(i2) decresing order
+            // return i2.compareTo(i1) decreasing order
+        }
+    } 
+    TreeSet t = new TreeSet(new MyComparator());
+`
+

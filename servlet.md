@@ -7,7 +7,7 @@
 
 2. when to use "get"/"post"?
      2.1 difference
-        visual different of get and post is that when you do get, your URI will contain the parameter key-value pairs
+        visual different of get and post is that when you do get, your URI will contain the parameter key-value pairs in the url
         that are sending to the server. and post does not contain that
      2.2 why use get?
         - easily book mark your search result
@@ -32,15 +32,47 @@
 
 3. sessions and cookies
     3.1 what is sessions and why to use?
-        - Http is a stateless protocal, Each time user requests to the server, server treats the request as the new request. So we need to maintain the state of an user to recognize to particular user.
+        - Http is a stateless protocal, Each time user requests to the server, server treats the request as a new request. So we need to maintain the state of an user to recognize to particular user.
         - SSH is long term lasting connection. but costly. 
     3.2 how to let the server recognize a user? e.g. amazon remebers userId and keeps cart every time you visit their web.
         - use cookie! server send little files to client and saved in client's computer.next time server communicate with the client, it will check if the client has the cookie it saved before. if yes, it will read and recognize the client. 
         - cookie's limitation. cookie only text, hard to convert to objects. and small. <4k
         - server session!
         server generate UID, cookie store UID, server store key-value pair. e.g. client's shopping cart info. 
+    3.3 code example of using Sessions
+    ```java
+        public void service(...){
+            PrintWriter out = request.getPrint();
+            response.setContentType("text/html");
 
-
-
+            HttpSession session = request.getSession();
+            session.setAttribute("key",yourValueCanBeAnyType);
+            syso(".....");
+        }
+    ```
+        when getting the session stored value back
+    ``` java
+        public void service(...){
+            HttpSession session = request.getSession();
+            Object value = session.getAtrribute("key")
+        }
+    ```
+    3.4  when we using cookie, remeber to set a time out period.
+        server is not going to store the cookie forever. 
+        In web.xml
+        ```xml
+                <session-config>
+                    <session-timeout>120</session-timeout>
+                </session-config>
+        ```
+    3.5 What if the user disabled cookie in the web-browser?
+        use jsession
+        '''java
+            HttpSession session = request.getSession();
+            session.setAttribute("key",yourValueCanBeAnyType);
+            String redirectUrl = "yourRedirectUrl.html" 
+            response.encodeURL(redirectUrl);  // here notice to use encodeURL not encodeUrl  
+            response.sendRedirect(redirectUrl);
+        ```
 
 
